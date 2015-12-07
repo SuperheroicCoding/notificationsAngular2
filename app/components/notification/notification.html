@@ -1,0 +1,8 @@
+<div class="notificationContainer"
+     [class.info]="category === 'info'"
+     [class.warning]="category === 'warning'"
+     [class.error]="category === 'error'">
+  <div class="title">{{title}}</div>
+  <div class="text">{{text}}</div>
+  <span class="removeIcon glyphicon glyphicon-remove" aria-hidden="true" (click)="removeNotification()"></span>
+</div>

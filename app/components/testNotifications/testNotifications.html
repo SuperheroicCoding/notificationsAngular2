@@ -1,0 +1,29 @@
+<div class="notificationsContainer">
+  <h3>
+    Notification Test
+  </h3>
+
+  <form class="notificationsForm" [ng-form-model]="notificationsForm" (submit)="addNotification($event)">
+    <input ng-control="title"
+           type="text"
+           placeholder="Your title">
+    <input ng-control="text"
+           type="text"
+           placeholder="Your text">
+    <select ng-control="category">
+      <option disabled [selected]="!category">Category</option>
+      <option class="info">info</option>
+      <option class="warning">warning</option>
+      <option class="error">error</option>
+    </select>
+    <button class="btn" [disabled]="!notificationsForm.valid" type="submit">Add</button>
+  </form>
+  <div [hidden]="!notificationsForm.valid">
+    <h4>Notification preview</h4>
+    <notification [title]="notificationsForm.controls.title.value"
+                  [text]="notificationsForm.controls.text.value"
+                  [category]="notificationsForm.controls.category.value"
+                  (remove)="notificationsForm.clear">
+    </notification>
+  </div>
+</div>

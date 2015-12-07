@@ -52,7 +52,8 @@ DEV_DEPENDENCIES
   .forEach(d => d.src = require.resolve(d.src));
 
 export const APP_ASSETS = [
-  { src: `${ASSETS_DEST}/main.css`, inject: true, dest: ASSETS_DEST }
+  { src: `${ASSETS_DEST}/main.css`, inject: true, dest: ASSETS_DEST },
+  { src: `${ASSETS_DEST}/animate.css`, inject: true, dest: ASSETS_DEST }
 ];
 
 export const SYSTEM_CONFIG = {

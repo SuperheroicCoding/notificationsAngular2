@@ -1,0 +1,17 @@
+<div class="notes">
+  <div class="columnNotificationContainer">
+    <notification *ng-for="#note of firstNotifications; #i = index"
+                  [class.toMany]="i >= concatenateNotificationsAfter"
+                  [title]="note.title"
+                  [text]="note.text"
+                  [category]="note.category"
+                  (remove)="removeNotification(note)"></notification>
+  </div>
+   <div [hidden]="lastNotifications.length < 1" class="rowNotificationContainer">
+    <notification *ng-for="#note of lastNotifications"
+                  [title]="note.title"
+                  [text]="note.text"
+                  [category]="note.category"
+                  (remove)="removeNotification(note)"></notification>
+  </div>
+</div>

@@ -1,24 +1,22 @@
-import {Component, ViewEncapsulation} from 'angular2/angular2';
+import {Component, COMMON_DIRECTIVES, ViewEncapsulation} from 'angular2/angular2';
 import {
   RouteConfig,
   ROUTER_DIRECTIVES
 } from 'angular2/router';
-// import {HTTP_PROVIDERS} from 'http/http';
 
-import {HomeCmp} from '../home/home';
-import {AboutCmp} from '../about/about';
-import {NameList} from '../../services/name_list';
+import {TestNotificationsCmp} from '../testNotifications/testNotifications';
+import {OverlayCmp} from '../overlay/overlay';
+import {NotificationCenterCmp} from '../notificationCenter/notificationCenter';
 
 @Component({
   selector: 'app',
-  viewProviders: [NameList],
   templateUrl: './components/app/app.html',
   styleUrls: ['./components/app/app.css'],
   encapsulation: ViewEncapsulation.None,
-  directives: [ROUTER_DIRECTIVES]
+  directives: [ROUTER_DIRECTIVES, COMMON_DIRECTIVES, OverlayCmp, NotificationCenterCmp]
 })
 @RouteConfig([
-  { path: '/', component: HomeCmp, as: 'Home' },
-  { path: '/about', component: AboutCmp, as: 'About' }
+  {path: '/', component: TestNotificationsCmp, as: 'TestNotifications'}
 ])
-export class AppCmp {}
+export class AppCmp {
+}
